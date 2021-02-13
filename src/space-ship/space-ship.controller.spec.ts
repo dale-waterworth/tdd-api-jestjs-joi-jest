@@ -22,20 +22,23 @@ describe('SpaceShipController', () => {
 
   it('should call the service', () => {
     const spaceShip: SpaceShip = {
-      'spaceShipId': SpaceShipId.from('abc-123-ship'),
-      'spaceShipName': 'Star Harvester',
-      'spaceShipNumber': 42,
-      'isFasterThanLight': true,
+      spaceShipId: SpaceShipId.from('abc-123-ship'),
+      spaceShipName: 'Star Harvester',
+      spaceShipNumber: 42,
+      isFasterThanLight: true,
     };
+    const returnedSpaceShip: SpaceShip = {
+      spaceShipId: SpaceShipId.from('abc-123-ship'),
+    } as SpaceShip;
+    service.save = jest.fn().mockResolvedValue(returnedSpaceShip);
 
-    controller.save(spaceShip);
-
-    expect(service.save).toHaveBeenCalledWith(spaceShip);
+    return controller.save(spaceShip).then((sp: SpaceShip) => {
+      expect(service.save).toHaveBeenCalledWith(spaceShip);
+      expect(sp).toBe(returnedSpaceShip);
+    });
   });
-
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
 });
-

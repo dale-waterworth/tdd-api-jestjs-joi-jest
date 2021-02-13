@@ -4,5 +4,5 @@ export class SpaceShip {
   spaceShipId: SpaceShipId;
   spaceShipName: string;
   spaceShipNumber: number;
-  isFasterThanLight: boolean
+  isFasterThanLight: boolean;
 }
