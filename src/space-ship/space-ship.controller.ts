@@ -5,12 +5,12 @@ import { SpaceShip } from './space-ship';
 
 @Controller('space-ship')
 export class SpaceShipController {
-
-  constructor(private service: SpaceShipService) {
-  }
+  constructor(private service: SpaceShipService) {}
 
   @Post()
-  public save(@Body(new SpaceShipSaveRequestToSpaceShip()) spaceShip: SpaceShip) {
-    this.service.save(spaceShip);
+  public save(
+    @Body(new SpaceShipSaveRequestToSpaceShip()) spaceShip: SpaceShip,
+  ): Promise<SpaceShip> {
+    return this.service.save(spaceShip);
   }
 }

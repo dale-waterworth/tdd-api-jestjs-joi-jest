@@ -4,9 +4,8 @@ export class SpaceShipId {
   }
 
   private static validate(id: string) {
-    const isValid = id
-    && id.length == 12;
-      // regex, other checks etc
+    const isValid = id && id.length == 12;
+    // regex, other checks etc
 
     if (!isValid) {
       throw new Error('Invalid Space ship ID');
