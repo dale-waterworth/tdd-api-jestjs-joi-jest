@@ -1,7 +1,6 @@
-import { SpaceShipId } from './SpaceShipId';
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'space_ship' })
 export class SpaceShipEntity {
   @PrimaryColumn({ name: 'id' })
   spaceShipId: string;
